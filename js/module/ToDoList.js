@@ -35,7 +35,7 @@ export default class ToDoList {
 
     div.innerHTML = `
       <p class="todo-text">${text}</p>
-      <button data-todo="${index}" class="todo-remove">X</button>
+      <button data-todo="${index}" class="todo-remove" title="concluir">Concluir</button>
     `;
 
     this.addRemoveEvent(div);
@@ -65,9 +65,9 @@ export default class ToDoList {
     }
   }
 
-  handleKeyup({key}) {
+  handleKeyup({ key }) {
     if (key === 'Enter') this.addTextByInput();
-  
+
   }
 
   getLocalStorage() {
@@ -75,7 +75,7 @@ export default class ToDoList {
       this.textArray = JSON.parse(window.localStorage.textArray);
       this.createListByArray();
     }
-  } 
+  }
 
   addToDoEvents() {
     this.buttonAdd.addEventListener('click', this.addTextByInput);
@@ -84,7 +84,7 @@ export default class ToDoList {
   }
 
   init() {
-    if (this.input && this.buttonAdd && this.list) { 
+    if (this.input && this.buttonAdd && this.list) {
       this.addToDoEvents();
       this.getLocalStorage();
     }

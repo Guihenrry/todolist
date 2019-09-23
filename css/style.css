@@ -1,0 +1,177 @@
+/* RESET */
+body, button, input, p, ul, li {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #3F4870 40%, #FFFFFF 40%);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* TODO ADD */
+.todo-add {
+  margin: 60px auto;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 110px);
+  grid-gap: 30px;
+  padding: 0 10px;
+}
+
+.todo-add input {
+  font-size: 1.125rem;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  border: none;
+  background: #FAFAFA;
+  border-radius: 5px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.14);
+  width: 100%;
+}
+
+.todo-add button {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  padding: 20px;
+  color: #FFFFFF;
+  background: #477AB7;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 8px 10px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-add button::before {
+  content: '';
+  display: block;
+  width: 21px;
+  height: 21px;
+  background: url('../img/add.svg') no-repeat center center;
+  margin-right: 20px;
+  transition: .3s;
+}
+
+.todo-add button:active {
+  opacity: .9;
+}
+.todo-add button:hover::before {
+  transform: rotate(90deg);
+}
+
+/* TODO ADD RESPONSIVO */
+@media screen and (max-width: 500px) {
+  .todo-add {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-add input {
+    grid-area: 1/1;
+    padding: 20px 60px 20px 20px;
+  }
+
+  .todo-add button::before {
+    display: none;
+  } 
+  .todo-add button {
+    grid-area: 1/1;
+    display: block;
+    width: 80px;
+    box-shadow: none;
+    justify-self: end;
+    text-indent: -1500px;
+    background: transparent url('../img/add-black.svg') no-repeat center center;
+  }
+}
+
+/* TODO LIST */
+.todo-list {
+  max-width: 800px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.todo-item {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 130px);
+  grid-gap: 30px;
+}
+
+.todo-text {
+  background: #FAFAFA;
+  padding: 20px;
+  border-left: 4px solid #477AB7;
+  color: #0D1026;
+  font-size: 1.125rem;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+}
+
+.todo-remove {
+  background: #FAFAFA;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  border: 1px solid #E5E4E8;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 0px 2px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo-remove::before {
+  content: '';
+  display: block;
+  width: 17px;
+  height: 15px;
+  background: url('../img/concluir.svg') no-repeat center center;
+}
+
+.todo-remove:hover {
+  border: none;
+  background: #EF2722;
+  color: #FFFFFF;
+}
+
+.todo-remove:hover::before {
+  background: url('../img/concluir-white.svg') no-repeat center center;
+}
+
+/* RESPONSIVO TODO LIST */
+@media screen and (max-width: 500px) {
+  .todo-item {
+    grid-template-columns: 1fr;  
+  }
+
+  .todo-text {
+    grid-area: 1/1;
+  }
+
+  .todo-remove {
+    grid-area: 1/1;
+    border: none;
+    box-shadow: none;
+    display: block;
+    text-indent: -1500px;
+    width: 80px;
+    justify-self: end;
+    background: url('../img/concluir.svg') no-repeat center center;
+  }
+
+  .todo-remove:hover {
+    background: url('../img/concluir.svg') no-repeat center center;
+  }
+  
+  .todo-remove::before {
+    display: none;
+  }
+}
